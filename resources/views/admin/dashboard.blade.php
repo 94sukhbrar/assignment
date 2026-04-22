@@ -21,12 +21,12 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
         <div class="card p-3 text-center shadow">
             <h5>Products</h5>
             <a href="/admin/products/create" class="btn btn-success btn-sm">Add Product</a>
         </div>
-    </div>
+    </div> -->
 
 </div>
 

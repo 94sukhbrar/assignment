@@ -4,22 +4,30 @@
 
 @section('content')
 
-<h5>Add Category</h5>
-
 <form method="POST">
-    @csrf
-    <input class="form-control w-50 mb-2" name="name" placeholder="Category Name">
-    <button class="btn btn-primary">Add</button>
+@csrf
+<input name="name" class="form-control w-50 mb-2" placeholder="Category name">
+<button class="btn btn-primary">Add</button>
 </form>
 
 <hr>
 
-<h5>All Categories</h5>
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>Action</th>
+</tr>
 
 @foreach($categories as $cat)
-    <div class="border p-2 mb-2">
-        {{ $cat->name }}
-    </div>
+<tr>
+    <td>{{ $cat->name }}</td>
+    <td>
+        <a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/admin/categories/{{ $cat->id }}/delete" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+</tr>
 @endforeach
+
+</table>
 
 @endsection
