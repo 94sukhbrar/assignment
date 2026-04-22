@@ -1,35 +1,10 @@
-@extends('layouts.admin')
-
-@section('title','Dashboard')
+@extends('layouts.app')
 
 @section('content')
 
-<h3>Welcome Admin 👋</h3>
+<h2>User Dashboard</h2>
 
-<div class="row mt-3">
-
-    <div class="col-md-4">
-        <div class="card p-3 text-center shadow">
-            <h5>Categories</h5>
-            <a href="/admin/categories" class="btn btn-primary btn-sm">Manage</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card p-3 text-center shadow">
-            <h5>Products</h5>
-            <a href="/admin/products" class="btn btn-warning btn-sm">Manage </a>
-        </div>
-    </div>
-
-   
-
-    <div class="col-md-4">
-        <div class="card p-3 text-center shadow">
-            <h5>Products</h5>
-            <a href="/admin/products/create" class="btn btn-success btn-sm">Add Product</a>
-        </div>
-    </div>
-
-</div>
+<a href="/products" class="btn btn-primary">View Products</a>
+<a href="/cart" class="btn btn-success">Go to Cart</a>
 
 @endsection

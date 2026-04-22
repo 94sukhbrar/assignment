@@ -53,20 +53,14 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {
 
             $user = Auth::user();
-
-            // block inactive
-            if ($user->status == 0) {
-                Auth::logout();
-                return back()->with('error', 'Account inactive');
-            }
-
-            // 🔥 REDIRECT BASED ON ROLE
+            // 🔥 ROLE BASED REDIRECT
             if ($user->role === 'admin') {
-                return redirect('/admin/dashboard');
+                return redirect('admin/dashboard');
+            }else{
+
+                return redirect('/dashboard');
             }
 
-           // return redirect('/dashboard');
-             return redirect('/admin/dashboard');
         }
     }
     public function logout()
@@ -82,5 +76,15 @@ class AuthController extends Controller
         } while (User::where($field, $value)->exists());
 
         return $value;
+    }
+    protected function redirectTo($request)
+    {
+        if (!$request->expectsJson()) {
+            return route('login'); // 👈 THIS NEEDS NAME
+        }
+    }
+    public function showLogin()
+    {
+        return view('auth.login');
     }
 }

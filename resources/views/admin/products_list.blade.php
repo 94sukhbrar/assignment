@@ -1,27 +1,31 @@
 @extends('layouts.admin')
 
-@section('title','All Products')
+@section('title','Products')
 
 @section('content')
 
-<h4>All Products</h4>
-
 <table class="table">
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-    </tr>
+<tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Action</th>
+</tr>
 
 @foreach($products as $p)
 <tr>
     <td>
-        <img src="{{ asset('/storage/products/gX0RAAiNaXW6bkwgCGQOjiFDhC2lL7dinSoEP5z4.png') }}" width="100" alt="{{$p->image}}">
+        <img src="{{ asset('storage/'.$p->image) }}" width="60">
     </td>
     <td>{{ $p->name }}</td>
     <td>{{ $p->category->name ?? '' }}</td>
     <td>₹{{ $p->price }}</td>
+    <td>
+          <a href="/admin/products/{{ $p->id }}" class="btn btn-info btn-sm">View</a>
+        <a href="/admin/products/{{ $p->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/admin/products/{{ $p->id }}/delete" class="btn btn-danger btn-sm">Delete</a>
+    </td>
 </tr>
 @endforeach
 
