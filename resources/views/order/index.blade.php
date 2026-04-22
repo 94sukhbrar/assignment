@@ -41,8 +41,10 @@
 
     <!-- Date -->
     <td>{{ $order->created_at->format('d M Y, h:i A') }}</td>
+    <td><a href="/order/{{ $order->id }}" class="btn btn-info btn-sm">View</a></td>
 
 </tr>
+
 
 @endforeach
 

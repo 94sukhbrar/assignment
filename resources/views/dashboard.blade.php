@@ -6,5 +6,6 @@
 
 <a href="/products" class="btn btn-primary">View Products</a>
 <a href="/cart" class="btn btn-success">Go to Cart</a>
+<a href="/order" class="btn btn-primary">View order</a>
 
 @endsection

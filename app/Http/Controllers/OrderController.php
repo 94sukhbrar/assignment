@@ -11,13 +11,13 @@ class OrderController extends Controller
     {
         $cart = session()->get('cart');
 
-        if(!$cart){
-            return back()->with('error','Cart empty');
+        if (!$cart) {
+            return back()->with('error', 'Cart empty');
         }
 
         $total = 0;
 
-        foreach($cart as $item){
+        foreach ($cart as $item) {
             $total += $item['price'] * $item['quantity'];
         }
 
@@ -26,7 +26,7 @@ class OrderController extends Controller
             'total_amount' => $total
         ]);
 
-        foreach($cart as $id => $item){
+        foreach ($cart as $id => $item) {
             OrderItem::create([
                 'order_id' => $order->id,
                 'product_id' => $id,
@@ -37,11 +37,17 @@ class OrderController extends Controller
 
         session()->forget('cart');
 
-        return redirect('/')->with('success','Order placed');
+        return redirect('/')->with('success', 'Order placed');
     }
     public function index()
-{
-    $orders = \App\Models\Order::with(['items.product','user'])->latest()->get();
-    return view('admin.orders', compact('orders'));
-}
+    {
+        $orders = \App\Models\Order::with(['items.product', 'user'])->latest()->get();
+        return view('order.index', compact('orders'));
+    }
+    public function show($id)
+    {
+        $order = \App\Models\Order::with(['items.product', 'user'])->findOrFail($id);
+
+        return view('order.order_view', compact('order'));
+    }
 }

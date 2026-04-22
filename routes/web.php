@@ -74,4 +74,6 @@ Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
 Route::get('/order/place', [OrderController::class, 'place'])->middleware('auth');
 Route::get('/cart/add/{id}', [CartController::class, 'add']);
 Route::get('/cart', [CartController::class, 'index']);
-Route::get('/admin/orders', [OrderController::class, 'index'])->middleware(['auth','admin']);
+
+Route::get('/order', [OrderController::class, 'index']);
+Route::get('/order/{id}', [OrderController::class, 'show']);
