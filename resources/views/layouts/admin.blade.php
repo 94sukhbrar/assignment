@@ -18,6 +18,7 @@
             <li><a href="/admin/categories" class="nav-link text-white">Categories</a></li>
             <li><a href="/admin/products" class="nav-link text-white">All Products</a></li>
             <li><a href="/admin/products/create" class="nav-link text-white">Add Product</a></li>
+            <li><a href="/" class="nav-link text-white">Visit Site</a></li>
         </ul>
     </div>
 

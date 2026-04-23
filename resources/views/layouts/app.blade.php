@@ -22,11 +22,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/products">Products</a>
                     </li>
+                    
 
                     {{-- 🔐 IF USER LOGGED IN --}}
                     @auth
                       <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/cart">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/order">Order</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
